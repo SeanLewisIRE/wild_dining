@@ -1,2 +1,5 @@
 wild_dining_venv/
 .vscode/
+*.sqlite3
+__pycache__
+*.pyc
