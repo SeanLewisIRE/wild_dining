@@ -1,0 +1,72 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001340155",
+            "name": "Charleville Red Cheddar",
+            "description": "Charleville Mature Red Cheddar",
+            "price": 4.99,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://img.tesco.ie/Groceries/pi/546/5011055291546/IDShot_225x225.jpg",
+            "image": "charleville_mature_red_cheddar.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001600425",
+            "name": "Chavroux Goat's Cheese Log",
+            "description": "Chavroux Goat's Cheese Log 105g",
+            "price": 2.99,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://img.tesco.ie/Groceries/pi/355/3614070059355/IDShot_225x225.jpg",
+            "image": "chavroux_goats_cheese.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730010",
+            "name": "Tesco Salami",
+            "description": "Tesco Finest Salami Milano 90g",
+            "price": 205.99,
+            "category": 2,
+            "rating": 4.7,
+            "image_url": "https://img.tesco.ie/Groceries/pi/248/5052909459248/IDShot_225x225.jpg",
+            "image": "tesco_salami.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001890157",
+            "name": "Organic Prosecco",
+            "description": "Mionetto Organic Prosecco 75Cl",
+            "price": 20.00,
+            "category": 4,
+            "rating": 3.0,
+            "image_url": "https://img.tesco.ie/Groceries/pi/468/8006220002468/IDShot_225x225.jpg",
+            "image": "prosecco.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002111605",
+            "name": "Coke Zero",
+            "description": "Coke Zero 8X330ml",
+            "price": 5.99,
+            "category": 5,
+            "rating": 5.0,
+            "image_url": "https://img.tesco.ie/Groceries/pi/341/5449000031341/IDShot_225x225.jpg",
+            "image": "coke_zero.jpg"
+        }
+    }
+]

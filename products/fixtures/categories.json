@@ -1,0 +1,50 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "cheese",
+            "friendly_name": "Cheeses"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "meats",
+            "friendly_name": "Meats"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "sides",
+            "friendly_name": "Sides"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "alcoholic_drinks",
+            "friendly_name": "Alcoholic Drinks"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "non_alcoholic_drinks",
+            "friendly_name": "Non-alcoholic Drinks"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "acessories",
+            "friendly_name": "Picnic Acessories"
+        }
+    }
+]
