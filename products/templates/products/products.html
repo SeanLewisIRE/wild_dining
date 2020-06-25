@@ -5,12 +5,30 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="d-block">Sucessfully viewing Products</h1>
+<h1 class="d-block">Products Page</h1>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+    {% for product in products %}
+    <div class="card" style="width: 18rem;">
+        <h5 class="card-header">Featured</h5>
+        {% if product.image %}
+        <img class="card-img-top" src="{{ product.image_url }}" alt="{{ product.name }}">
+        {% else %}
+        <img class="card-img-top" src="{{MEDIA_URL}}no_image.jpg" alt="{{ product.name }}">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text">{{ product.price }}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+        <div class="card-footer text-muted">
+            {% if product.rating %}
+            <p>{{ product.rating}}</p>
+            {% else %}
+            <p>No rating available yet</p>
+            {% endif %}
         </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
