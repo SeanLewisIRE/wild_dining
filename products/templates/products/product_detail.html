@@ -5,19 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="d-block">Products Page</h1>
+<h1 class="d-block">Product Detail Page</h1>
 <div class="container">
-    {% for product in products %}
     <div class="card" style="width: 18rem;">
         <h5 class="card-header">Featured</h5>
         {% if product.image %}
-        <a href="{% url 'product_detail' product.id %}">
-            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-        </a>
+        <img class="card-img-top" src="{{ product.image_url }}" alt="{{ product.name }}">
         {% else %}
-        <a href="{% url 'product_detail' product.id %}">
-            <img class="card-img-top" src="{{MEDIA_URL}}no_image.jpg" alt="{{ product.name }}">
-        </a>
+        <img class="card-img-top" src="{{MEDIA_URL}}no_image.jpg" alt="{{ product.name }}">
         {% endif %}
         <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
@@ -33,6 +28,5 @@
             {% endif %}
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
