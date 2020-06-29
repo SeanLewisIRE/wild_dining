@@ -14,6 +14,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                <a href="{% url 'products' %}?sort=price&direction=desc" class="dropdown-item">Sort By price desc</a>
                 <a href="{% url 'products' %}?category=cheese" class="dropdown-item">Cheese</a>
                 <a href="{% url 'products' %}?category=alcoholic_drinks" class="dropdown-item">Wine</a>
             </div>
