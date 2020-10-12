@@ -1,4 +1,4 @@
-wild_dining_venv/
+store_venv/
 .vscode/
 *.sqlite3
 __pycache__
