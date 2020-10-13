@@ -6,6 +6,7 @@ chardet==3.0.4
 defusedxml==0.6.0
 Django==3.0.7
 django-allauth==0.42.0
+django-crispy-forms==1.9.2
 entrypoints==0.3
 flake8==3.7.9
 idna==2.9
