@@ -3,3 +3,4 @@ store_venv/
 *.sqlite3
 __pycache__
 *.pyc
+.env
