@@ -1,1 +1,1 @@
-web: gunicorn wild-dining.wsgi:application
+web: gunicorn wild_dining.wsgi:application
