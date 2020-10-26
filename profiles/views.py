@@ -5,7 +5,15 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from django.contrib.auth.decorators import login_required
+# Decorators are special functions that wrap around another function
+# and return a new one with some additional functionality.
+# In the case of login_required for example, wherever we use this decorator
+# it will make Django first check whether the user is logged in. Before executing the view
+# And if not it'll redirect them to the login page.
 
+
+@login_required
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
