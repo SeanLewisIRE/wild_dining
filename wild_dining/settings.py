@@ -26,7 +26,9 @@ SECRET_KEY = '!)ul=ra_#&--0t^9fci+&owt#23pydp+dt^*y))3-!4v9%m7fl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://wild-dining.herokuapp.com/'
+]
 
 
 # Application definition
@@ -104,9 +106,17 @@ WSGI_APPLICATION = 'wild_dining.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.parse(config('HEROKU_DB_URL'))
-}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
