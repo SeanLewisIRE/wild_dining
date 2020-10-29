@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-# from decouple import config
+from decouple import config
 import os
 import dj_database_url
 
@@ -22,13 +22,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+
+if 'USE_AWS' in os.environ:
+    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+    DEBUG = False
+else: 
+    SECRET_KEY = config('SECRET_KEY')
+    DEBUG = True
+
+
+    
 
 ALLOWED_HOSTS = [
-    'wild-dining.herokuapp.com'
+    'wild-dining.herokuapp.com',
+    '127.0.0.1',
 ]
 
 
@@ -208,9 +216,15 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'eur'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
+if 'USE_AWS' in os.environ:
+    STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+    STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+    STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+else:
+   STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+   STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+   STRIPE_WH_SECRET  = ''
     
 
 if 'USE_AWS' in os.environ:
