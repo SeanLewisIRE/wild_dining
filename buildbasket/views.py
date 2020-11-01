@@ -1,16 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.models import Product
+from .forms import BasketForm1, BasketForm2, BasketForm3
+from formtools.wizard.views import SessionWizardView
+from bag.views import add_to_bag
 # Create your views here.
 
+class BasketWizard(SessionWizardView):
 
-def all_cheese_products(request):
-    """ View to render all products including sorting and searching """
+    template_name = "buildbasket/wizard_form.html"
+    form_list = [BasketForm1, BasketForm2, BasketForm3]
 
-    all_cheese_products = Product.objects.filter(category=1)
+    
 
-    context = {
-        'products': all_cheese_products,
-    }
+    def done(self, form_list, **kwargs):
 
-    # context required to allow sending things back to template
-    return render(request, 'buildbasket/cheese.html', context)
+        for item in form_list:
+            print(item)
+        
+        return redirect('bag/bag.html')
+
+        # return render(self.request, 'bag/bag.html',  {
+        #     'form_data': [form.cleaned_data for form in form_list],
+        # })

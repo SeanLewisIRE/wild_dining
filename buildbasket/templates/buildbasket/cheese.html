@@ -29,6 +29,7 @@
                         </tr>
                     </thead>
 
+                    <form method='POST' action=''>
                     {% for item in products %}
                     <tr>
                         <td class="p-3 w-25">
@@ -43,10 +44,11 @@
                             <p class="my-0 small text-muted">{{ item.description }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <input type="radio" id="select-radio" name="{{ item.name }}" value="{{ item.name }}">
+                            <input type="checkbox" id="select-checkbox" name="{{ item.name }}" value="{{ item.name }}">
                         </td>
                     </tr>
                     {% endfor %}
+                    </form>
                 </table>
             </div>
         </div>
