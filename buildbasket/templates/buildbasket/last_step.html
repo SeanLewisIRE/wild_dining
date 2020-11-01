@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Meat</h2>
+            <h2 class="logo-font mb-4">Drinks</h2>
             <hr>
         </div>
     </div>
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
 
-                    <form method='POST' action="{% url 'last_step' %}">
+                    <form method='POST' action=''>
                         {% csrf_token %}
                         {% for item in products %}
                         <tr>
@@ -60,18 +60,19 @@
                                 </div>
                             </td>
                             <td class="py-3 w-25">
-                            <input type="checkbox" id="select-checkbox" name="meats" value="{{ item.pk }}">
+                            <input type="checkbox" id="select-checkbox" name="alcoholic_drinks" value="{{ item.pk }}">
+
                             </td>
                         </tr>
                         {% endfor %}
 
-                        <a href="{ url 'step1' }" class="btn btn-outline-black rounded-0 btn-lg">
+                        <a href="{ url 'step2' }" class="btn btn-outline-black rounded-0 btn-lg">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="text-uppercase">Previous Step</span>
                         </a>
-
+                        
                         <button type="submit" value="Submit" class="btn btn-outline-black rounded-0 btn-lg">
                             <span class="icon">
                                 <i class="fas fa-chevron-right"></i>

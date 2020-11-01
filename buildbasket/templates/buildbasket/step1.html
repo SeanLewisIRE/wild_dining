@@ -29,7 +29,8 @@
                         </tr>
                     </thead>
 
-                    <form method='POST' action=''>
+                    <form method='POST' action="{% url 'step1' %}">
+                    {% csrf_token %}
                     {% for item in products %}
                     <tr>
                         <td class="p-3 w-25">
@@ -43,13 +44,36 @@
                             <p class="my-0"><strong>{{ item.name }}</strong></p>
                             <p class="my-0 small text-muted">{{ item.description }}</p>
                         </td>
+                        <td class="py-3">
+                            <div class="col-12 col-sm-6">
+                                <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                    max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}"
+                                        id="increment-qty_{{ item.item_id }}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
                         <td class="py-3 w-25">
-                            <input type="checkbox" id="select-checkbox" name="{{ item.name }}" value="{{ item.name }}">
+                            <input type="checkbox" id="select-checkbox" name="cheeses" value="{{ item.pk }}">
                         </td>
                     </tr>
                     {% endfor %}
+
+                        <button type="submit" value="Submit" class="btn btn-outline-black rounded-0 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                            <span class="text-uppercase">Next Step</span>
+                        </button>
                     </form>
                 </table>
+
+
             </div>
         </div>
     </div>
