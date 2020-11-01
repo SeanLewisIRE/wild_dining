@@ -17,7 +17,7 @@ class BasketWizard(SessionWizardView):
         for item in form_list:
             print(item)
         
-        return redirect('bag/bag.html')
+        return redirect('../bag/bag.html')
 
         # return render(self.request, 'bag/bag.html',  {
         #     'form_data': [form.cleaned_data for form in form_list],
