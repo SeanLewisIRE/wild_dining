@@ -21,12 +21,15 @@ body {
 .text-block {
   position: absolute;
   bottom: 42.5%;
-  left: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
   border: 1px solid white;
   text-align: center;
   padding: 7.5px 7.5px;
 }
+
+
 
 .list-wrap {
     display: flex;
@@ -36,6 +39,7 @@ body {
 }
 
 .category-wrapper {
+    max-width: 1155px;
     display: flex;
     flex-direction: column;
 }
@@ -55,7 +59,6 @@ body {
     min-width: 150px; 
     text-align: center;
     text-decoration: none;
-
 }
 
 .cat-link:hover {
@@ -68,6 +71,47 @@ body {
     display: inline;
     color: white;
     padding: 5px 40px;
+}
+
+@media (min-width: 767px) {
+    .category-wrapper {
+        /* height: 100vh; */
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .category-box {
+        margin: 0.25em auto;
+        background-size: cover;
+        width: 375px;
+        height: 375px;
+    }
+
+    .cat-link {
+        border: 1px solid white;
+        padding: 7.5px 7.5px;
+        margin: 1.5em 0 0 1.5em;
+        display: inline-block;
+        min-width: 150px; 
+        text-align: center;
+        text-decoration: none;
+
+    }
+
+}
+
+@media (min-width: 992px) {
+        .category-wrapper {
+
+            width: 90%;
+            margin: 0 auto;
+        }
+}
+
+@media (min-width: 1250px) {
+        .category-wrapper {
+            /* width: 85%; */
+        }
 }
 
 /* from Bulma */
