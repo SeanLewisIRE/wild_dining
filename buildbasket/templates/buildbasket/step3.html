@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
 
-                    <form method='POST' action=''>
+                    <form method='POST' action="{% url 'done' %}">
                         {% csrf_token %}
                         {% for item in products %}
                         <tr>
@@ -46,9 +46,6 @@
                             </td>
                             <td class="py-3">
                                 <div class="col-12 col-sm-6">
-                                    <input class="form-control form-control-sm qty_input" type="number" name="quantity"
-                                        value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                                        id="id_qty_{{ item.item_id }}">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-sm btn-black rounded-0"
                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">

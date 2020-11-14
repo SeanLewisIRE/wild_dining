@@ -2,5 +2,22 @@
 {% load static %}
 
 {% block content %}
-<h1 class="d-block">Sucessfully viewing index</h1>
+<div class="hero">
+    <div class="text-block">
+        <h4>Wild Dining</h4>
+        <p>Adventure begins in the wild</p>
+    </div>
+</div>
+
+<div class="category-wrapper">
+    {% for category in categories %}
+        <div class="category-box" style="background-image: url(media/{{category.placeholder_img}})">
+            <div class="cat-link">
+                <a href="{% url 'products' %}?category={{category.name}}" >
+                    <h4>{{category.friendly_name | capfirst}}</h4>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

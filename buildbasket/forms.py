@@ -1,21 +1,10 @@
 from django import forms
-from products.models import Product
+from .models import buildBasket
 
-
-# class BasketForm1(forms.Form):
-#     products = forms.SelectMultipleField(
-#         queryset=Product.objects.filter(id=1),
-#         widget=forms.CheckboxSelectMultiple,
-#     )
-
-# class BasketForm2(forms.Form):
-#     products = forms.ModelMultipleChoiceField(
-#         queryset=Product.objects.filter(id=1),
-#         widget=forms.CheckboxSelectMultiple,
-#     )
-
-# class BasketForm3(forms.Form):
-#     products = forms.ModelMultipleChoiceField(
-#         queryset=Product.objects.filter(id=1),
-#         widget=forms.CheckboxSelectMultiple,
-#     )
+class CheeseForm(forms.ModelForm):
+    cheesesSelection1 = forms.CheckboxInput()
+    cheesesSelection2 = forms.CheckboxInput()
+    
+    class Meta:
+        model = buildBasket
+        fields = ('id',)

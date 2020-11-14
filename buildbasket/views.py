@@ -1,24 +1,31 @@
 from django.shortcuts import render, reverse, redirect, HttpResponseRedirect
 from products.models import Product
 from django.views.decorators.csrf import csrf_protect
-from bag.views import view_bag, add_to_bag
+# from .forms import cheesesSelection1
+# from bag.views import view_bag, add_to_bag
 
 
 @csrf_protect
 def step1(request):
-    cheeses = Product.objects.all().filter(category = 1)
-    context = {
-        'products': cheeses,
-    }
 
     if request.method == 'POST':
-        selections = request.POST.getlist('cheeses')
+        form = cheesesSelection1(request.POST)
+        if form.is_valid():
+            selections = request.POST.getlist('cheeses')
+            return render(request, 'buildbasket/step1.html', context)
+        
+    # cheeses = Product.objects.all().filter(category = 1)
+    # context = {
+    #     'products': cheeses,
+    # }
 
-        for item in selections:
-            request.session['builder_session'] += item
+    # if request.method == 'POST':
+    #     selections = request.POST.getlist('cheeses')
+    #     print(selections)
+    #     request.session['builder_session'] = selections
 
-        return redirect('step2')
-    return render(request, 'buildbasket/step1.html', context)
+    # print(request.session['builder_session'])
+    # return render(request, 'buildbasket/step1.html', context)
 
 
 @csrf_protect
@@ -30,17 +37,16 @@ def step2(request):
 
     if request.method == 'POST':
         selections = request.POST.getlist('meats')
-        if 'builder_session' in request.session:
-            for item in selections:
-                request.session['builder_session'] += item
-
-        redirect('last_step')
+        request.session['builder_session'] = selections
+    
+    return redirect('step3')
+    print(request.session['builder_session'])
     return render(request, 'buildbasket/step2.html', context)
 
 
 
 @csrf_protect
-def last_step(request):
+def step3(request):
     drinks = Product.objects.all().filter(category=4)
 
     context = {
@@ -49,13 +55,21 @@ def last_step(request):
 
     if request.method == 'POST':
         selections = request.POST.getlist('alcoholic_drinks')
-        if 'builder_session' in request.session:
-            for item in selections:
-                request.session['builder_session'] += item
+        request.session['builder_session'] = selections
 
-        print(request.session['builder_session'])
-        return redirect(view_bag)
-    return render(request, 'buildbasket/last_step.html', context)
+    return redirect('done')
+    print(request.session['builder_session'])
+    return render(request, 'buildbasket/step3.html', context)
+
+
+def done(request):
+    built_basket = request.session['builder_session']
+    print(built_basket)
+    context = {
+        'selection': built_basket,
+    }
+
+    return render(request, 'buildbasket/done.html', context)
 
 
 # def step4(request):
