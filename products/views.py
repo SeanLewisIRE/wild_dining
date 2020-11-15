@@ -10,9 +10,22 @@ from django.contrib.auth.decorators import login_required
 # it will make Django first check whether the user is logged in. Before executing the view
 # And if not it'll redirect them to the login page.
 
-from .models import Product, Category
+from .models import Product, Category, Basket
 from .forms import ProductForm
 
+
+def all_baskets(request):
+    """ View to render all products including sorting and searching """
+    baskets = Basket.objects.all()
+
+    template = 'products/baskets.html'
+
+
+    context = {
+        'baskets': baskets,
+    }
+
+    return render(request, template, context)
 
 def all_products(request):
     """ View to render all products including sorting and searching """

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, Category, Basket
 
 # Register your models here.
 
@@ -23,5 +23,13 @@ class CategoryAdmin(admin.ModelAdmin):
         'placeholder_img',
     )
 
+
+class BasketAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'placeholder_img'
+    )
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Basket, BasketAdmin)

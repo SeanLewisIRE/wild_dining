@@ -73,6 +73,14 @@ body {
     padding: 5px 40px;
 }
 
+.list-inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
 @media (min-width: 767px) {
     .category-wrapper {
         /* height: 100vh; */

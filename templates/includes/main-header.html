@@ -21,7 +21,7 @@
         </form>
     </div>
     <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+        <ul class="list-inline list-unstyled text-center my-0">
             <li class="list-inline-item dropdown">
                 <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -46,21 +46,19 @@
                 </div>
             </li>
             <li class="list-inline-item">
-                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                    href="">
-                    <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-0">
-                            <a href="{% url 'view_bag' %}">
-                                <img src="https://img.icons8.com/windows/32/000000/shopping-cart.png" />
-                            </a>
-                            {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
-                            {% else %}
-                            $0.00
-                            {% endif %}
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="mt-1">
+                        <a href="{% url 'view_bag' %}">
+                            <img src="https://img.icons8.com/windows/32/000000/shopping-cart.png" />
+                        </a>
+                        {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                        $0.00
+                        {% endif %}
+                    </p>
+                </div>
                 </a>
             </li>
         </ul>
@@ -75,9 +73,4 @@
         {% include './mobile-header.html' %}
         {% include './main-nav.html' %}
     </nav>
-</div>
-<div id="delivery-banner" class="row text-center">
-    <div class="col bg-black text-white">
-        <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
-    </div>
 </div>
