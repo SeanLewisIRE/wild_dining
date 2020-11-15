@@ -28,7 +28,7 @@ def add_to_bag(request, item_id):
 
 def add_basket_to_bag(request, item_id):
     """Add a user specified quantity of an item to the bag"""
-    basket = get_object_or_404(Basket, pk=item_id+"b")
+    basket = get_object_or_404(Basket, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
