@@ -16,7 +16,7 @@
 
 <div class="category-wrapper">
     {% for category in categories %}
-        <div class="category-box" style="background-image: url(media/{{category.placeholder_img}})">
+        <div class="category-box" style="background-image: url({{MEDIA_URL}}{{category.placeholder_img}})">
             <div class="cat-link">
                 <a href="{% url 'products' %}?category={{category.name}}" >
                     <h4>{{category.friendly_name | capfirst}}</h4>
